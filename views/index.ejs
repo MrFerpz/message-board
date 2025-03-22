@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages Board</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <% messages.forEach(message => {%>
-    <div>
-        <div><%= message.user%></div>
-        <div><%= message.text%></div>
-        <div><%= message.added%></div>
+    <div class = "message-entry">
+        <div class = "username"><%= message.user%></div>
+        <div class = "message" >"<%= message.text%>"</div>
+        <div class = "date"><b>Sent on: </b><%= message.added%></div>
     </div>
     <%})%>
+    <br>
+    <a class = "new-message-button" href="/new">Add a new message</a>
 </body>
 </html>
