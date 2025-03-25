@@ -1,4 +1,4 @@
-require('dotenv').config({ path: "/Users/fredpy/repos/message-board/.env" });
+require('dotenv').config();
 
 const express = require('express');
 const app = express();

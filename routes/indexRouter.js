@@ -1,24 +1,11 @@
 const { Router } = require('express');
+const mbController = require('../controllers/mbController')
 const indexRouter = Router();
 
-const messages = [
-    {
-      text: "Hi there!",
-      user: "Amando",
-      added: new Date()
-    },
-    {
-      text: "Hello World!",
-      user: "Charles",
-      added: new Date()
-    }
-  ];
+indexRouter.get("/", mbController.indexGet);
+indexRouter.get("/new", mbController.newFormGet);
+indexRouter.post("/new", mbController.newFormPost);
+indexRouter.get("/delete", mbController.deleteUserPageGet);
+indexRouter.post("/delete", mbController.deleteUserPost);
 
-indexRouter.get("/", (req, res) => res.render("index", { messages: messages }));
-indexRouter.get("/new", (req, res) => res.render("form"));
-
-indexRouter.post("/new", (req, res) => {
-    console.log(req.body);
-    messages.push({ text: req.body.messageText, user: req.body.nameText, added: new Date()});
-    res.redirect("/")});
 module.exports = indexRouter;
